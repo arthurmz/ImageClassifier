@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 
 /**
  * Contabiliza a quantidade de pixels na imagem do brasil.
- * Exporta uma nova vers„o da imagem para verificar visualmente o processo de contagem.
+ * Exporta uma nova versƒÉo da imagem para verificar visualmente o processo de contagem.
  * @author Arthur.
  *
  */
@@ -37,12 +37,12 @@ public class Main {
 		    	for (int j = 0; j < h; j++) {
 		    		int rgb = img.getRGB(i, j);
 		    		
-		    		//FILTRANDO A VARIA«√O DE COR E CONTANDO A QUANTIDADE DE CADA PIXEL.
+		    		//FILTRANDO A VARIA√áƒÇO DE COR E CONTANDO A QUANTIDADE DE CADA PIXEL.
 		    		if (isBranco(rgb)) {
 		    			pixelsBrancos++;
 		    		}
 		    		else if (isAmarelo(rgb)) {
-		    			img.setRGB(i, j, Color.GREEN.getRGB());
+		    			img.setRGB(i, j, Color.YELLOW.getRGB());
 		    			pixelsAmarelos++;
 		    		}
 		    		else if (isVerde(rgb)) {
@@ -58,10 +58,10 @@ public class Main {
 		    			pixelsAzuis++;
 		    		}
 		    		else if (isCyan(rgb)) {
-		    			img.setRGB(i, j, Color.YELLOW.getRGB());
+		    			img.setRGB(i, j, Color.GREEN.getRGB());
 		    			pixelsCyan++;
 		    		}
-		    		//DECIDINDO A COR DOS PIXELS RESTANTES (BORDAS PRETAS E CORES COM POUCA SATURA«√O)
+		    		//DECIDINDO A COR DOS PIXELS RESTANTES (BORDAS PRETAS E CORES COM POUCA SATURA√áƒÇO)
 		    		else {
 		    			int pxAmarelosRelat = 0;
 					    int pxVerdesRelat = 0;
@@ -94,7 +94,7 @@ public class Main {
 		    				}
 		    			}
 		    			if (pxAmarelosRelat > pxVerdesRelat + pxVermelhosRelat + pxAzuisRelat + pxCyanRelat) {
-		    				img.setRGB(i, j, Color.GREEN.getRGB());
+		    				img.setRGB(i, j, Color.YELLOW.getRGB());
 		    				pixelsAmarelos++;
 		    			}
 		    			else if (pxVerdesRelat > pxAmarelosRelat + pxVermelhosRelat + pxAzuisRelat + pxCyanRelat) {
@@ -110,7 +110,7 @@ public class Main {
 			    			pixelsAzuis++;
 		    			}
 		    			else if (pxCyanRelat > pxAzuisRelat + pxVermelhosRelat + pxVerdesRelat + pxAmarelosRelat) {
-		    				img.setRGB(i, j, Color.YELLOW.getRGB());
+		    				img.setRGB(i, j, Color.GREEN.getRGB());
 			    			pixelsCyan++;
 		    			}
 		    		}
@@ -133,13 +133,13 @@ public class Main {
 		    float areaSul = (pixelsCyan / total) * 100;
 		    int naoContabilizados = (int) (total - (somaPixels + pixelsBrancos));
 		    float areaNaoContabilizada = ((float)naoContabilizados / total) * 100;
-		    System.out.println("Pixels n„o contabilizados: " + naoContabilizados + " (" + areaNaoContabilizada + "%)");
-		    System.out.println("¡rea do Norte: " + areaNorte + "%");
-		    System.out.println("¡rea do Nordeste: " + areaNordeste + "%");
-		    System.out.println("¡rea do Centro-oeste: " + areaCentroOeste + "%");
-		    System.out.println("¡rea do Sudeste: " + areaSudeste + "%");
-		    System.out.println("¡rea do Sul: " + areaSul + "%");
-		    System.out.println("¡rea total do Brasil: " + areaBrasil + "%");
+		    System.out.println("Pixels nƒÉo contabilizados: " + naoContabilizados + " (" + areaNaoContabilizada + "%)");
+		    System.out.println("√Årea do Norte: " + areaNorte + "%");
+		    System.out.println("√Årea do Nordeste: " + areaNordeste + "%");
+		    System.out.println("√Årea do Centro-oeste: " + areaCentroOeste + "%");
+		    System.out.println("√Årea do Sudeste: " + areaSudeste + "%");
+		    System.out.println("√Årea do Sul: " + areaSul + "%");
+		    System.out.println("√Årea total do Brasil: " + areaBrasil + "%");
 		    
 		    File file = new File("output.jpeg");
 		    ImageIO.write(img, "jpg", file);
